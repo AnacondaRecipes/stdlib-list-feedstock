@@ -9,27 +9,38 @@ source:
   sha256: a1e503719720d71e2ed70ed809b385c60cd3fb555ba7ec046b96360d30b16d9f
 
 build:
-  number: 2
-  noarch: python
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
-    - python >=3
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3
-    - sphinx
+    - python
+    # sphinx is needed in https://github.com/jackmaney/python-stdlib-list/blob/v0.8.0/stdlib_list/fetch.py
+    # but not required for runtime and testing.
+    #- sphinx
 
 test:
   imports:
     - stdlib_list
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: http://github.com/jackmaney/python-stdlib-list
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
-  summary: A list of Python Standard Libraries (2.6-7, 3.2-5)
+  summary: A list of Python Standard Libraries (2.6-7, 3.2-9)
+  description: |
+    This package includes lists of all of the standard libraries for Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, and 3.9 
+    along with the code for scraping the official Python docs to get said lists.
   dev_url: http://github.com/jackmaney/python-stdlib-list
   doc_url: https://jackmaney.github.io/python-stdlib-list
 
