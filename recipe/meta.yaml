@@ -32,20 +32,17 @@ test:
     - pip check
 
 about:
-  home: http://github.com/jackmaney/python-stdlib-list
-  license: BSD-3-Clause
-  license_family: BSD
+  home: https://pypi.org/project/stdlib-list/
+  license: MIT
+  license_family: MIT
   license_file: LICENSE
-  summary: A list of Python Standard Libraries (2.6-7, 3.2-9)
+  summary: A list of standard libraries for Python 2.6 through 3.12.
   description: |
-    This package includes lists of all of the standard libraries for Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, and 3.9
+    This package includes lists of all of the standard libraries for Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, and 3.12,
     along with the code for scraping the official Python docs to get said lists.
-  dev_url: http://github.com/jackmaney/python-stdlib-list
-  doc_url: https://jackmaney.github.io/python-stdlib-list
+  dev_url: https://github.com/pypi/stdlib-list/
+  doc_url: https://pypi.github.io/stdlib-list/
 
 extra:
   recipe-maintainers:
-    - ericdill
-    - parente
-    - marshall245
-    - jackmaney
+    - woodruffw
