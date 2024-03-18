@@ -14,7 +14,7 @@ build:
   skip: True  # [py<37]
 
 requirements:
-  build:
+  host:
     - python
     - flit-core >=3.2,<4
     - pip
