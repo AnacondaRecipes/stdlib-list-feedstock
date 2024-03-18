@@ -1,29 +1,26 @@
-{% set version = "0.8.0" %}
+{% set version = "0.10.0" %}
 
 package:
   name: stdlib-list
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/stdlib-list/stdlib-list-{{ version }}.tar.gz
-  sha256: a1e503719720d71e2ed70ed809b385c60cd3fb555ba7ec046b96360d30b16d9f
+  url: https://pypi.io/packages/source/s/stdlib_list/stdlib_list-{{ version }}.tar.gz
+  sha256: 6519c50d645513ed287657bfe856d527f277331540691ddeaf77b25459964a14
 
 build:
   number: 0
-  # trigger 1
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
+  skip: True  # [py<37]
 
 requirements:
-  build:
+  host:
     - python
+    - flit-core >=3.2,<4
     - pip
-    - setuptools
-    - wheel
+
   run:
     - python
-    # sphinx is needed in https://github.com/jackmaney/python-stdlib-list/blob/v0.8.0/stdlib_list/fetch.py
-    # but not required for runtime and testing.
-    #- sphinx
 
 test:
   imports:
@@ -34,20 +31,17 @@ test:
     - pip check
 
 about:
-  home: http://github.com/jackmaney/python-stdlib-list
-  license: BSD-3-Clause
-  license_family: BSD
+  home: https://pypi.org/project/stdlib-list/
+  license: MIT
+  license_family: MIT
   license_file: LICENSE
-  summary: A list of Python Standard Libraries (2.6-7, 3.2-9)
+  summary: A list of standard libraries for Python 2.6 through 3.12.
   description: |
-    This package includes lists of all of the standard libraries for Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, and 3.9 
+    This package includes lists of all of the standard libraries for Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, and 3.12,
     along with the code for scraping the official Python docs to get said lists.
-  dev_url: http://github.com/jackmaney/python-stdlib-list
-  doc_url: https://jackmaney.github.io/python-stdlib-list
+  dev_url: https://github.com/pypi/stdlib-list/
+  doc_url: https://pypi.github.io/stdlib-list/
 
 extra:
   recipe-maintainers:
-    - ericdill
-    - parente
-    - marshall245
-    - jackmaney
+    - woodruffw
