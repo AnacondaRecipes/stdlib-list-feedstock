@@ -1,24 +1,23 @@
-{% set version = "0.10.0" %}
+{% set version = "0.12.0" %}
 
 package:
   name: stdlib-list
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/stdlib_list/stdlib_list-{{ version }}.tar.gz
-  sha256: 6519c50d645513ed287657bfe856d527f277331540691ddeaf77b25459964a14
+  url: https://pypi.org/packages/source/s/stdlib_list/stdlib_list-{{ version }}.tar.gz
+  sha256: 517824f27ee89e591d8ae7c1dd9ff34f672eae50ee886ea31bb8816d77535675
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
-  skip: True  # [py<37]
+  skip: true  # [py<39]
 
 requirements:
   host:
     - python
     - flit-core >=3.2,<4
     - pip
-
   run:
     - python
 
